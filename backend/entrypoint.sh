@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-# a real backend app would 
+# a real backend app would put their script name here
 expected=tail
 
 # this if will check if the first argument is a flag
