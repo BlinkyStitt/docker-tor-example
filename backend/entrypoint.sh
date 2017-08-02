@@ -34,7 +34,7 @@ if [ -n "$TOR_HOSTNAME" ] || [ -n "$TOR_IP" ]; then
 fi
 
 # check for the expected command
-if [ "$1" = "$expected" ] && [ "$3" = "/dev/null"]; then
+if [ "$1" = "$expected" ] && [ "$3" = "/dev/null" ]; then
     # a real backend app would do some setup here
     echo "Welcome!"
 
