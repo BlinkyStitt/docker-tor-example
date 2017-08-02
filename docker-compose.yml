@@ -1,0 +1,27 @@
+version: '3'
+
+networks:
+  internal:
+    internal: true
+  external:
+    internal: false
+
+services:
+  tor:
+    image: bwstitt/tor-proxy
+    restart: always
+    volumes:
+      - /dev/log:/dev/log
+      - /var/run/systemd/journal/socket:/var/run/systemd/journal/socket
+    networks:
+      - external
+      - internal
+
+  backend:
+    build: ./backend
+    restart: always
+    command: tail -f /dev/null
+    networks:
+      - internal
+    environment:
+      - TOR_HOSTNAME=tor
