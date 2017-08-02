@@ -1,5 +1,5 @@
 #!/bin/sh
-set -ex
+set -e
 
 # a real backend app would put their script name here
 expected=tail
@@ -31,6 +31,8 @@ if [ -n "$TOR_HOSTNAME" ] || [ -n "$TOR_IP" ]; then
     # torify everything
     export TORSOCKS_CONF_FILE
     export LD_PRELOAD=/usr/lib/torsocks/libtorsocks.so
+
+    echo "torsocks loaded!"
 fi
 
 # check for the expected command
