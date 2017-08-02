@@ -10,9 +10,6 @@ services:
   tor:
     image: bwstitt/tor-proxy
     restart: always
-    volumes:
-      - /dev/log:/dev/log
-      - /var/run/systemd/journal/socket:/var/run/systemd/journal/socket
     networks:
       - external
       - internal
